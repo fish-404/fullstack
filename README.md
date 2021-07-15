@@ -5,7 +5,7 @@ If you can't install an environment in your computer, you can use [Replit](https
 
 You can also use [CodeSandbox](https://codesandbox.io/) to simulate. Maybe CodeSandbox is better. It provide React tool in the playgraound so that you don't need open you web in a new tab and install a extention React tool. But web environment in CodeSandbox doesn't support shell.
 
-Update: 
+Note: 
 
 Replit seems can't open two shell window, so you can't use it to complete Ex 2.11
 
