@@ -9,4 +9,4 @@ Note:
 
 Replit seems can't open two shell window, so you can't use it to complete Ex 2.11
 
-Haven't find methods use CodeSandbox to complete Ex 2.11. The Container Environment can support multiple terminal, but it can't sync all files in the files tree. It means the files you create in terminal can't be shown in file tree, and I haven't find methods to open files in the editor using terminal.
+Haven't find methods using CodeSandbox to complete Ex 2.11. The Container Environment can support multiple terminal, but it can't sync all files in the files tree. It means the files you create in terminal can't be shown in file tree, and I haven't find methods to open files in the editor using terminal.
