@@ -25,8 +25,8 @@ const Weather = ({ capital }) => {
   const [weather, setWeather] = useState("");
 
   useEffect(() => {
-    fetch(weatherApiStr)
-      .then((res) => res.json())
+    axios.get(weatherApiStr)
+      .then((res) => res.data)
       .then(
         (result) => {
           setWeather(result);
