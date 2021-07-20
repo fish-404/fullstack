@@ -136,7 +136,7 @@ const App = () => {
   return (
     <>
       <div>
-        find countries:{" "}
+        find countries:
         <input value={filter} onChange={handleFilterChange} id="filter" />
       </div>
       <Result responses={responses} changeFilter={changeFilter} />
