@@ -42,14 +42,22 @@ const Persons = ({filterToShow}) => {
 }
 
 const App = () => {
-	const initPhoneBook = [
-		{ id: 1, name: 'Arto Hellas', phone: '040-1234567'}, 
-		{ id: 2, name: 'Test', phone: '040-1234675'}
-	]
-  const [ persons, setPersons ] = useState(initPhoneBook)
-  const [ newName, setNewName ] = useState('')
-	const [ newPhone, setNewPhone ] = useState('')
-	const [ newFilter, setFilter] = useState('')
+  const [persons, setPersons] = useState([]);
+  const [newName, setNewName] = useState("");
+  const [newPhone, setNewPhone] = useState("");
+  const [newFilter, setFilter] = useState("");
+
+  useEffect(() => {
+    console.log("effect");
+    axios
+      .get("https://sogz9-3001.sse.codesandbox.io/persons")
+      .then((response) => response.data)
+      .then((result) => {
+        console.log("result", result);
+        setPersons(result);
+      });
+  }, []);
+
 
 	const handleNameChange = (event) => {
 		setNewName(event.target.value)
