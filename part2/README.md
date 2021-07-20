@@ -35,7 +35,7 @@ According to the improvement description, you can also use:
       .get("URL", {
         responseType: "json",
         transitional: {
-          silentJSONParsing: true
+          silentJSONParsing: false // accroding the description, should use false, but I find true is also works, confused
         }
       })
       .then((result) => {
