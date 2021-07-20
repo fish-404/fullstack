@@ -12,6 +12,23 @@ Note:
 
 Replit seems can't open two shell window, so you can't use it to complete Ex 2.11
 
-Haven't find methods using CodeSandbox to complete Ex 2.11. The Container Environment can support multiple terminal, but it can't sync all files in the files tree. It means the files you create in terminal can't be shown in file tree, and I haven't find methods to open files in the editor using terminal.
+Update: 
 
-An idea to complete Ex 2.11, you can open two codesandbox, and one use josn-server environmnet. Haven't take a test yet. 
+Find methods to complete Ex 2.11
+
+You can use Node HTTP Server Template to create Sandbox, it allows you use multiple terminals.
+
+Tips:
+* install dependencies from its Dependencies pannel
+* change `scripts` in `package.json`:
+  ``` json
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject"
+    }
+  ```
+* run json-server and react app by terminal, remember set json-server port like the lecture guide
+* in codesanbox, open browser pannel when codesandbox question you whether to open, and you can get the json-server address to use
+ 
