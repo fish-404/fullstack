@@ -20,7 +20,8 @@ You can use Node HTTP Server Template to create Sandbox, it allows you use multi
 
 Tips:
 * install dependencies from its Dependencies pannel
-* change `scripts` in `package.json`:
+* change `scripts` in `package.json` (let you can use `npm start` in terminal) :
+
   ``` json
     "scripts": {
       "start": "react-scripts start",
