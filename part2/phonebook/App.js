@@ -1,6 +1,22 @@
 import React, { useState, useEffect } from "react";
 import phonebookService from "./services/phoneBook";
 
+const SuccessMsg = ({ message }) => {
+  if (message === null) {
+    return null;
+  }
+
+  return <div className="success">{message}</div>;
+};
+
+const ErrorMsg = ({ message }) => {
+  if (message === null) {
+    return null;
+  }
+
+  return <div className="error">{message}</div>;
+};
+
 const Input = (props) => {
   return (
     <div>
@@ -82,6 +98,8 @@ const App = () => {
   const [newName, setNewName] = useState("");
   const [newPhone, setNewPhone] = useState("");
   const [newFilter, setFilter] = useState("");
+  const [successMsg, setSuccessMsg] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
 
   useEffect(() => {
     console.log("effect");
@@ -130,14 +148,22 @@ const App = () => {
       } else {
         if (window.confirm(updateMessage)) {
           const newItem = { ...exitItem, phone: newPhone };
-          phonebookService.updateInfo(newItem.id, newItem).then((response) => {
-            //console.log("test", response);
-            setPersons(
-              persons.map((person) =>
-                person.id !== newItem.id ? person : response
-              )
-            );
-          });
+          phonebookService
+            .updateInfo(newItem.id, newItem)
+            .then((response) => {
+              //console.log("test", response);
+              setPersons(
+                persons.map((person) =>
+                  person.id !== newItem.id ? person : response
+                )
+              );
+            })
+            .catch((error) => {
+              setErrorMsg(`${newItem.name} was already deleted from server`);
+              setTimeout(() => {
+                setErrorMsg(null);
+              }, 5000);
+            });
         }
       }
     } else {
@@ -149,6 +175,10 @@ const App = () => {
 
       phonebookService.addInfo(infoObject).then((returnInfo) => {
         setPersons(persons.concat(returnInfo));
+        setSuccessMsg(`Added ${newName}`);
+        setTimeout(() => {
+          setSuccessMsg(null);
+        }, 5000);
         setNewName("");
         setNewPhone("");
       });
@@ -163,6 +193,8 @@ const App = () => {
   return (
     <div>
       <h1>Phone book</h1>
+      <SuccessMsg message={successMsg} />
+      <ErrorMsg message={errorMsg} />
       <Filter newFilter={newFilter} handleFilterChange={handleFilterChange} />
       <h2>add a new</h2>
       <AddForm
