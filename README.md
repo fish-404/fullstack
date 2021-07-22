@@ -1,5 +1,5 @@
 # fullstackopen-fish
-Personal Exercises of Fullstack open in https://fullstackopen.com/ [Suomi|English|中文|Spanish]
+Personal Exercises of Fullstack open in https://fullstackopen.com/ [Suomi | English | 中文 | Spanish]
 
 ---
 
@@ -21,7 +21,7 @@ StackBiltz Features:
 - 🙁 Not support Vim mode 
 
 Relpit Features:
-- 🙁 Seems can't update Node version
+- 🙁 Seems can't update Node version (Now is v12)
 - 🙁 Not support multiple terminals
 
 Note: 
