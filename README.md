@@ -1,6 +1,8 @@
 # fullstackopen-fish
 Personal Exercises of Fullstack open in https://fullstackopen.com/ [Suomi|English|中文|Spanish]
 
+---
+
 If you are not convinient to  install an environment in your computer, you can use online environment to simulate and learn:
 
  * [Replit](https://replit.com/~) 
@@ -8,12 +10,17 @@ If you are not convinient to  install an environment in your computer, you can u
  * [StackBiltz](https://stackblitz.com/)
 
 CodeSandbox Features:
-- Provide React tool to see components status
-- Provide detail error messages
-- Although it doesn't provide shell window, you can add packages in Dependences window
+- 😀 Provide React tool to see components status 
+- 😀 Provide detail error messages 
+- 🙁 Terminal font space is large, hard to use
 
 StackBiltz Features:
-- Provide multiple teminal in node.js blank project
+- 😀 Provide multiple terminals in node.js blank project
+- 🙁 Not support Vim mode 
+
+Relpit Features:
+- 🙁 Seems can't update Node version
+- 🙁 Not support multiple terminals
 
 Note: 
 
