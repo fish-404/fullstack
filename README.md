@@ -12,10 +12,12 @@ If you are not convinient to  install an environment in your computer, you can u
 CodeSandbox Features:
 - 😀 Provide React tool to see components status 
 - 😀 Provide detail error messages 
+- 😀 Successed in testing using Postman
 - 🙁 Terminal font space is large, hard to use
 
 StackBiltz Features:
 - 😀 Provide multiple terminals in node.js blank project
+- 🙁 Failed in testing using Postman
 - 🙁 Not support Vim mode 
 
 Relpit Features:
