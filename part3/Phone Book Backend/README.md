@@ -17,3 +17,6 @@ Test Screenshot:
 
 ![Post with Duplicate Name](https://github.com/fish-404/fullstackopen-fish/blob/master/part3/Phone%20Book%20Backend/postUnique.png)
 
+Custom morgan token screenshot:
+
+![new morgan token result](https://github.com/fish-404/fullstackopen-fish/blob/master/part3/Phone%20Book%20Backend/morganMyToken.png)
