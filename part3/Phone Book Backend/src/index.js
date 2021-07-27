@@ -1,30 +1,11 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const cors = require("cors");
+const PhoneBook = require("../models/phonebook");
 
-let persons = [
-  {
-    id: 1,
-    name: "Arto Hellas",
-    number: "040-123456"
-  },
-  {
-    id: 2,
-    name: "Ada Lovelace",
-    number: "39-44-5323523"
-  },
-  {
-    id: 3,
-    name: "Dan Abramov",
-    number: "12-43-234345"
-  },
-  {
-    id: 4,
-    name: "Mary Poppendieck",
-    number: "39-23-6423122"
-  }
-];
-
+app.use(cors());
 app.use(express.json());
 morgan.token("myToken", function (req, res) {
   return JSON.stringify({
@@ -53,19 +34,15 @@ app.use(
 );
 
 app.get("/api/persons", (req, res) => {
-  res.json(persons);
+  PhoneBook.find({}).then((persons) => {
+    res.json(persons);
+  });
 });
 
 app.get("/api/persons/:id", (req, res) => {
-  const id = Number(req.params.id);
-  console.log(id);
-  const person = persons.find((person) => person.id === id);
-
-  if (person) {
+  PhoneBook.findById(req.params.id).then((person) => {
     res.json(person);
-  } else {
-    res.status(404).end();
-  }
+  });
 });
 
 app.delete("/api/persons/:id", (req, res) => {
@@ -90,26 +67,27 @@ app.post("/api/persons", (req, res) => {
     });
   }
 
-  if (persons.find((person) => person.name === body.name)) {
-    return res.status(403).json({
-      error: "Name Must be Unique"
-    });
-  }
+  //if (persons.find((person) => person.name === body.name)) {
+  //  return res.status(403).json({
+  //    error: "Name Must be Unique"
+  //  });
+  //}
 
-  const person = {
-    id: Number(Math.floor(Math.random() * 10e10)),
+  const person = new PhoneBook({
     name: body.name ? body.name : body.number,
     number: body.number
-  };
+  });
 
-  persons = persons.concat(person);
-
-  res.json(person);
+  person.save().then((savedPerson) => {
+    res.json(savedPerson);
+  });
 });
 
 app.get("/info", (req, res) => {
   res.send(`Phonebook has info for ${persons.length} people <br/> ${Date()}`);
 });
 
-const PORT = 8080;
-app.listen(PORT);
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
