@@ -13,14 +13,18 @@ CodeSandbox Features:
 - 😀 Provide React tool to see components status 
 - 😀 Provide detail error messages 
 - 😀 Successed in testing using Postman
+- 😀 Can create a application shotcut from Chrome, like a lightly application in your computer
 - 🙁 Terminal font space is large, hard to use
+- 🙁 Usually need to refresh the codeSandbox to reconnect
 
 StackBiltz Features:
 - 😀 Provide multiple terminals in node.js blank project
 - 🙁 Failed in testing using Postman
 - 🙁 Not support Vim mode 
+- 🙁 Usually need to refresh to reconnect
 
 Relpit Features:
+- 😀 Connection seems more stable, no need to refresh frequencely
 - 🙁 Seems can't update Node version (Now is v12)
 - 🙁 Not support multiple terminals
 
@@ -51,3 +55,6 @@ Tips:
 * run json-server and react app by terminal, remember set json-server port like the lecture guide
 * in codesanbox, open browser pannel when codesandbox question you whether to open, and you can get the json-server address to use
  
+If you use Node HTTP Server template, you can't use React Tool.
+
+Another option is you can create two CodeSandbox, one for front end, one for back end, I take this option in chapter 3.
