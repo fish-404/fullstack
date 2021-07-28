@@ -19,10 +19,10 @@ If you are not convinient to  install an environment in your computer, you can u
  
  😀 Can create a application shotcut from Chrome, like a lightly application in your computer
  
+ 😐 Container will hibernate due to long inactivity, you need refresh browser to wake it up
+ 
  🙁 Terminal font space is large, hard to use
  
- 🙁 Usually need to refresh the codeSandbox to reconnect
-
 ###### StackBiltz Features:
 
  😀 Provide multiple terminals in node.js blank project
