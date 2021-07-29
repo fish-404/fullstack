@@ -18,3 +18,9 @@ Test Screenshot:
 Custom morgan token screenshot:
 
 ![new morgan token result](https://github.com/fish-404/fullstackopen-fish/blob/master/part3/Phone%20Book%20Backend/morganMyToken.png)
+
+Custom Error Handler: 
+
+![GET error](https://github.com/fish-404/fullstackopen-fish/blob/master/part3/Phone%20Book%20Backend/getError.png)
+
+![POST error](https://github.com/fish-404/fullstackopen-fish/blob/master/part3/Phone%20Book%20Backend/postError.png)
