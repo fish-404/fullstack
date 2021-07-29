@@ -39,53 +39,81 @@ app.get("/api/persons", (req, res) => {
   });
 });
 
-app.get("/api/persons/:id", (req, res) => {
-  PhoneBook.findById(req.params.id).then((person) => {
-    res.json(person);
-  });
+app.get("/api/persons/:id", (req, res, next) => {
+  PhoneBook.findById(req.params.id)
+    .then((person) => {
+      if (person) {
+        res.json(person);
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch((error) => next(error));
 });
 
 app.delete("/api/persons/:id", (req, res) => {
-  const id = Number(req.params.id);
-  persons = persons.filter((person) => person.id !== id);
-
-  res.status(204).end();
+  PhoneBook.findByIdAndRemove(req.params.id)
+    .then((reslut) => {
+      res.status(204).end();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 });
 
-app.post("/api/persons", (req, res) => {
+app.post("/api/persons", (req, res, next) => {
   const body = req.body;
-
-  if (!body.name) {
-    return res.status(403).json({
-      error: "Name Missing"
-    });
-  }
-
-  if (!body.number) {
-    return res.status(403).json({
-      error: "Phone Number Missing"
-    });
-  }
-
-  //if (persons.find((person) => person.name === body.name)) {
-  //  return res.status(403).json({
-  //    error: "Name Must be Unique"
-  //  });
-  //}
 
   const person = new PhoneBook({
     name: body.name ? body.name : body.number,
     number: body.number
   });
 
-  person.save().then((savedPerson) => {
-    res.json(savedPerson);
-  });
+  person
+    .save()
+    .then((savedPerson) => {
+      res.json(savedPerson);
+    })
+    .catch((error) => next(error));
+});
+
+app.put("/api/persons/:id", (req, res, next) => {
+  const body = req.body;
+
+  const person = {
+    name: body.name,
+    number: body.number
+  };
+
+  PhoneBook.findByIdAndUpdate(req.params.id, person, {
+    new: true,
+    runValidators: true
+  })
+    .then((updatePerson) => {
+      res.json(updatePerson);
+    })
+    .catch((error) => next(error));
 });
 
 app.get("/info", (req, res) => {
-  res.send(`Phonebook has info for ${persons.length} people <br/> ${Date()}`);
+  PhoneBook.find({}).then((persons) => {
+    res.send(`Phonebook has info for ${persons.length} people <br/> ${Date()}`);
+  });
 });
+
+const errorHandler = (error, req, res, next) => {
+  console.error(error);
+  if (error.name === "CastError" && error.kind === "ObjectId") {
+    return res.status(400).send({
+      error: "malformatted id"
+    });
+  } else if (error.name === "ValidationError") {
+    return res.status(400).json({ error: error.message });
+  }
+  next(error);
+};
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
