@@ -33,18 +33,6 @@ app.use(
   })
 );
 
-const errorHandler = (error, req, res, next) => {
-  console.error(error.message);
-  if (error.name === "CastError" && error.kind === "ObjectId") {
-    return res.statsu(400).send({
-      error: "malformatted id"
-    });
-  }
-  next(error);
-};
-
-app.use(errorHandler);
-
 app.get("/api/persons", (req, res) => {
   PhoneBook.find({}).then((persons) => {
     res.json(persons);
@@ -118,6 +106,18 @@ app.get("/info", (req, res) => {
     res.send(`Phonebook has info for ${persons.length} people <br/> ${Date()}`);
   });
 });
+
+const errorHandler = (error, req, res, next) => {
+  console.error(error.message);
+  if (error.name === "CastError" && error.kind === "ObjectId") {
+    return res.statsu(400).send({
+      error: "malformatted id"
+    });
+  }
+  next(error);
+};
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
