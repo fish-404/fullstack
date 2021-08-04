@@ -41,10 +41,6 @@ If you are not convinient to  install an environment in your computer, you can u
  
  ---
 
-Note: 
-
-Replit seems can't open two shell window, so you can't use it to complete Ex 2.11
-
 Update: 
 
 Find methods to complete Ex 2.11
@@ -71,3 +67,5 @@ Tips:
 If you use Node HTTP Server template, you can't use React Tool.
 
 Another option is you can create two CodeSandbox, one for front end, one for back end, I take this option in chapter 3.
+
+Using this method, maybe Replit can complete Ex 2.11, not test yet.
