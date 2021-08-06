@@ -10,11 +10,15 @@
     "cors": "2.8.5",
     "dotenv": "10.0.0",
     "express": "4.17.1",
+    "jest": "27.0.6", 
     "mongoose": "5.13.5",
     "node": "16.6.1"
   },
   "devDependencies": {
     "nodemon": "1.18.4"
   },
-  "keywords": []
+  "keywords": [], 
+  "jest": {
+    "testEnvironment": "node"
+  }
 }
