@@ -17,9 +17,11 @@ If you are not convinient to  install an environment in your computer, you can u
  
  😀 Can create a application shotcut from Chrome, like a lightly application in your computer
  
- 😐 Container will hibernate due to long inactivity, you need refresh browser to wake it up
+ 😐 Container will hibernate due to long inactivity (around 10 minutes according to [CodeSandbox FAQ](https://codesandbox.io/docs/faq#are-there-any-limitations-with-sandboxes)), you need refresh browser to wake it up 
  
- 🙁 Terminal font space is large, hard to use
+ 🙁 Terminal font space is large to use, seems no methond to change terminal theme
+ 
+ 🙁 Can't use custom ESLingt configs
  
 ###### StackBiltz Features:
 
