@@ -1,7 +1,7 @@
 # fullstackopen-fish
 Personal Exercises of Fullstack open in https://fullstackopen.com/ [Suomi | English | 中文 | Spanish]
 
-Suggest learing basic JavaScript first, maybe from MDN or https://javascript.info/ [En|Zh|...]
+Suggest learing basic JavaScript first, maybe from MDN or https://javascript.info/ [En | Zh | ...]
 
 ---
 
