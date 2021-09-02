@@ -26,6 +26,27 @@ describe("Blog test", () => {
     const res = await api.get("/api/blogs");
     expect(res.body[0].id).toBeDefined();
   });
+  
+  test("post a new blog", async () => {
+    const newBlog = {
+      title: "Learn X in Y",
+      author: "Conmunity",
+      url: "https://learnxinyminutes.com/",
+      likes: 0
+    };
+
+    await api
+      .post("/api/blogs")
+      .send(newBlog)
+      .expect(201)
+      .expect("Content-Type", /application\/json/);
+
+    const res = await api.get("/api/blogs");
+    expect(res.body).toHaveLength(initBlogs.length + 1);
+    expect(res.body).toEqual(
+      expect.arrayContaining([expect.objectContaining(newBlog)])
+    ); 
+  });
 });
 
 afterAll(() => {
