@@ -47,6 +47,27 @@ describe("Blog test", () => {
       expect.arrayContaining([expect.objectContaining(newBlog)])
     ); 
   });
+  
+  test("like default", async () => {
+    const newBlog = {
+      title: "Learn X in Y",
+      author: "Conmunity",
+      url: "https://learnxinyminutes.com/"
+    };
+
+    await api
+      .post("/api/blogs")
+      .send(newBlog)
+      .expect(201)
+      .expect("Content-Type", /application\/json/);
+
+    const res = await api.get("/api/blogs");
+    expect(res.body).toHaveLength(initBlogs.length + 1);
+    expect(res.body.find((x) => x.title === "Learn X in Y")).toHaveProperty(
+      "likes",
+      0
+    );
+  });
 });
 
 afterAll(() => {
