@@ -1,9 +1,18 @@
 const mongoose = require("mongoose");
+const errorMessage = "title and url can't be not defined at the same time";
 
 const blogSchema = new mongoose.Schema({
   title: String,
   author: String,
-  url: String,
+  url: {
+    type: String,
+    required: [
+      function () {
+        return !this.title != null;
+      },
+      errorMessage
+    ]
+  },
   likes: { type: Number, default: 0 }
 });
 
