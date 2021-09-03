@@ -68,6 +68,14 @@ describe("Blog test", () => {
       0
     );
   });
+  
+  test("bad request", async () => {
+    const newBlog = {
+      author: "Community"
+    };
+
+    await api.post("/api/blogs").send(newBlog).expect(400);
+  });
 });
 
 afterAll(() => {
