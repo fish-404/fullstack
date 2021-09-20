@@ -76,6 +76,14 @@ describe("Blog test", () => {
 
     await api.post("/api/blogs").send(newBlog).expect(400);
   });
+  
+  test("delete blog", async () => {
+    const res = await api.get("/api/blogs");
+    const tobeDelId = helper.getRandomBlogId(res.body);
+    await api.delete(`/api/blogs/${tobeDelId}`).expect(204);
+    const again = await api.get("/api/blogs");
+    expect(again.body).toHaveLength(initBlogs.length - 1);
+  });
 });
 
 afterAll(() => {
