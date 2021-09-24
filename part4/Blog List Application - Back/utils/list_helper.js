@@ -1,4 +1,4 @@
-function getRandomInt(max) {
+const getRandomInt = (max) => {
   return Math.floor(Math.random() * max);
 }
 
@@ -22,5 +22,7 @@ const getRandomBlogId = (blogs) => {
 module.exports = {
   dummy,
   totalLikes,
-  favoriteBlog
+  favoriteBlog, 
+  getRandomBlogId, 
+  getRandomInt
 };
