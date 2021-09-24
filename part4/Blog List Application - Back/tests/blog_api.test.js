@@ -84,6 +84,24 @@ describe("Blog test", () => {
     const again = await api.get("/api/blogs");
     expect(again.body).toHaveLength(initBlogs.length - 1);
   });
+  
+    test("delete blog", async () => {
+    const res = await api.get("/api/blogs");
+    const tobeDelId = helper.getRandomBlogId(res.body);
+    await api.delete(`/api/blogs/${tobeDelId}`).expect(204);
+    const again = await api.get("/api/blogs");
+    expect(again.body).toHaveLength(initBlogs.length - 1);
+  });
+
+  test("update blog likes", async () => {
+    const res = await api.get("/api/blogs");
+    const tobeUpdateId = helper.getRandomBlogId(res.body);
+    const newLikes = helper.getRandomInt(randomMax);
+    const result = await api.put(
+      `/api/blogs/${tobeUpdateId}/likes/${newLikes}`
+    );
+    expect(result.body.likes).toEqual(newLikes);
+  })
 });
 
 afterAll(() => {
