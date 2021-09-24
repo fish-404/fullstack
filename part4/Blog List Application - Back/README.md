@@ -5,3 +5,4 @@ Reference: [Jest matching objects in array - Medium](https://medium.com/@andrei.
 📌Tips:
 
 * For Ex 4.14: When you use Mongoose `findByIdAndUpdate()` API, remember set options `new` true to get updated documented, or it will default be false.
+> [options.new=false] «Boolean» By default, findByIdAndUpdate() returns the document as it was before update was applied. If you set new: true, findOneAndUpdate() will instead give you the object after update was applied. To change the default to true, use mongoose.set('returnOriginal', false);.
