@@ -1,28 +1,29 @@
+const _ = require("lodash");
+
 const getRandomInt = (max) => {
-  return Math.floor(Math.random() * max);
-}
+  return _.random(max);
+};
 
 const dummy = (blogs) => {
   return 1;
 };
 
 const totalLikes = (blogs) => {
-  return blogs.reduce((sum, cur) => ({ likes: sum.likes + cur.likes })).likes;
+  return _.sumBy(blogs, "likes");
 };
 
 const favoriteBlog = (blogs) => {
-  return blogs.reduce((max, cur) => (max.likes > cur.likes ? max : cur));
+  return _.maxBy(blogs, "likes");
 };
 
 const getRandomBlogId = (blogs) => {
   return blogs[getRandomInt(blogs.length)].id;
 };
 
-
 module.exports = {
   dummy,
   totalLikes,
-  favoriteBlog, 
-  getRandomBlogId, 
+  favoriteBlog,
+  getRandomBlogId,
   getRandomInt
 };
