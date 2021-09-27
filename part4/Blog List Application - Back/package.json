@@ -4,20 +4,25 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "dev": "cross-env NODE_ENV=development nodemon src/index.js",
+    "start": "cross-env NODE_ENV=production nodemon src/index.js",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand"
   },
   "dependencies": {
     "cors": "2.8.5",
+    "cross-env": "7.0.3",
     "dotenv": "10.0.0",
     "express": "4.17.1",
-    "jest": "27.0.6", 
+    "jest": "27.0.6",
+    "lodash": "4.17.21",
     "mongoose": "5.13.5",
-    "node": "16.6.1"
+    "node": "16.6.1",
+    "supertest": "6.1.4"
   },
   "devDependencies": {
     "nodemon": "1.18.4"
   },
-  "keywords": [], 
+  "keywords": [],
   "jest": {
     "testEnvironment": "node"
   }
