@@ -7,7 +7,9 @@ Suggest learing basic JavaScript first, maybe from MDN or https://javascript.inf
 
 If you are not convinient to  install an environment in your computer, you can use online environment to simulate and learn:
 
-  [Replit](https://replit.com/~) | [CodeSandbox](https://codesandbox.io/) |  [StackBiltz](https://stackblitz.com/)
+_From my personal experience, recommand CodeSandbox._
+
+ [CodeSandbox](https://codesandbox.io/) |  [StackBiltz](https://stackblitz.com/) |  [Replit](https://replit.com/~)
 
 ###### CodeSandbox Features:
 
