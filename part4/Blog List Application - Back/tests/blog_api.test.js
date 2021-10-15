@@ -37,6 +37,13 @@ describe("Analyze Blogs", () => {
       helper.favoriteBlog(initBlogs).title
     );
   });
+  
+  test("mostBlogs", async () => {
+    const res = await api.get("/api/blogs");
+    expect(helper.mostBlogs(res.body).blogs).toEqual(
+      helper.mostBlogs(initBlogs).blogs
+    );
+  });
 });
 
 describe("Specific Blog", () => {
