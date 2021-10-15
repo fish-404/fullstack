@@ -20,10 +20,26 @@ const getRandomBlogId = (blogs) => {
   return blogs[getRandomInt(blogs.length)].id;
 };
 
+const countByAuthor = (blogs) => {
+  return lodash.countBy(blogs, "author");
+};
+
+const mostBlogs = (blogs) => {
+  const blogCountObj = countByAuthor(blogs);
+  const maxBlogCount = lodash.max(lodash.values(blogCountObj));
+  return {
+    name: lodash.findKey(blogCountObj, function (value) {
+      return value === maxBlogCount;
+    }),
+    blogs: maxBlogCount
+  };
+};
+
 module.exports = {
   dummy,
   totalLikes,
   favoriteBlog,
   getRandomBlogId,
-  getRandomInt
+  getRandomInt,
+  mostBlogs
 };
