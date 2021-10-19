@@ -24,6 +24,21 @@ const countByAuthor = (blogs) => {
   return lodash.countBy(blogs, "author");
 };
 
+const groupByAuthor = (blogs) => {
+  return lodash.groupBy(blogs, "author");
+};
+
+const likesByAuthor = (blogs) => {
+  const likeByAuthor = [];
+  lodash.forEach(groupByAuthor(blogs), function (value, key) {
+    likeByAuthor.push({
+      author: key,
+      likes: lodash.sumBy(value, "likes")
+    });
+  });
+  return likeByAuthor;
+};
+
 const mostBlogs = (blogs) => {
   const blogCountObj = countByAuthor(blogs);
   const maxBlogCount = lodash.max(lodash.values(blogCountObj));
@@ -35,11 +50,16 @@ const mostBlogs = (blogs) => {
   };
 };
 
+const mostLikes = (blogs) => {
+  return lodash.maxBy(likesByAuthor(blogs), "likes");
+};
+
 module.exports = {
   dummy,
   totalLikes,
   favoriteBlog,
   getRandomBlogId,
   getRandomInt,
-  mostBlogs
+  mostBlogs, 
+  mostLikes
 };
