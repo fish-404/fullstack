@@ -5,6 +5,8 @@ Suggest learing basic JavaScript first, maybe from MDN or https://javascript.inf
 
 ---
 
+Update: Find Gitpod can give a online enviroment from github, maybe a better choice, haven't try this yet.
+
 If you are not convinient to  install an environment in your computer, you can use online environment to simulate and learn:
 
 _From my personal experience, recommand CodeSandbox._
