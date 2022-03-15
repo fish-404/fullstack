@@ -25,7 +25,7 @@ _From my personal experience, recommand CodeSandbox._
  
  😐 Container will hibernate due to long inactivity (around 10 minutes according to [CodeSandbox FAQ](https://codesandbox.io/docs/faq#are-there-any-limitations-with-sandboxes)), you need refresh browser to wake it up 
  
- 🤨 Terminal font space is large to use, seems no methond to change terminal theme (After discuss with CodeSandbox developer, seems the terminal font space problem I meet is a special case(it appears in my working and personal computer). But other users seems not meet this, still try to find how to fix it)
+ 🤨 Terminal font space is large to use, seems no methond to change terminal theme (After [discuss](https://github.com/codesandbox/codesandbox-client/discussions/5987) with CodeSandbox developer, seems the terminal font space problem I meet is a special case(it appears in my working and personal computer). But other users seems not meet this, still try to find how to fix it. Update: the strange style may caused by network, but have no ideas about why it occurs and how to fix it if you visit CodeSandbox with a limited network. )
  
  🙁 Can't use custom ESLingt configs
  
