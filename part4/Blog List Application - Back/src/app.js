@@ -5,7 +5,7 @@ const config = require("../utils/config");
 const mongoose = require("mongoose");
 const blogsRouter = require("../controllers/blogs");
 const middleware = require("../utils/middleware");
-const userRouter = require("../contollers/users");
+const userRouter = require("../controllers/users");
 
 const mongoUrl = config.MONGODB_URI;
 
